@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .app {
   text-align: center;
@@ -30,6 +31,8 @@ body {
   font-family: 'Bebas Neue', sans-serif;
 }
 
+=======
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -136,10 +139,13 @@ body {
 
 /* App.css */
 
+<<<<<<< HEAD
 .board-creation{
   color: black;
 }
 
+=======
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
 .app {
   display: flex;
   height: 100vh;
@@ -198,6 +204,7 @@ body {
 
 .board-button.active {
   background-color: #6200ea; /* Purple background for active board */
+<<<<<<< HEAD
   color: #fff; 
 }
 
@@ -207,13 +214,28 @@ body {
   padding: 10px 15px;
   border: none;
   border-radius: 50px;
+=======
+  color: #fff; /* White text color for active board */
+}
+
+.new-board-button {
+  background-color: #6200ea; /* Purple background */
+  color: #fff; /* White text color */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
 .new-board-button:hover {
+<<<<<<< HEAD
   background-color: #9186a1; 
+=======
+  background-color: #5300d6; /* Slightly darker purple on hover */
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
 }
 
 .board-list .board {
@@ -267,5 +289,9 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14

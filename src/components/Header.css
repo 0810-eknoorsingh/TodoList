@@ -1,9 +1,12 @@
 /* Header.css */
 
+<<<<<<< HEAD
 body {
   font-family: 'Bebas Neue', sans-serif;
 }
 
+=======
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
 .header {
     display: flex;
     justify-content: space-between;
@@ -18,7 +21,11 @@ body {
   }
   
   .add-task-button {
+<<<<<<< HEAD
     background-color: #800080;
+=======
+    background-color: #800080; /* Purple color */
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
     color: white;
     padding: 10px 15px;
     border: none;
@@ -27,6 +34,10 @@ body {
   }
   
   .add-task-button:hover {
+<<<<<<< HEAD
     background-color: #6a006a; 
+=======
+    background-color: #6a006a; /* Darker purple on hover */
+>>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
   }
   
