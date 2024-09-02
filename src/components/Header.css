@@ -1,0 +1,32 @@
+/* Header.css */
+
+body {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #eaeaea;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .add-task-button {
+    background-color: #800080;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-task-button:hover {
+    background-color: #6a006a; 
+  }
+  
