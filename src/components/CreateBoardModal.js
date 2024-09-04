@@ -2,23 +2,26 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBoard } from '../redux/boardSlice';
-import './NewBoardModal.css'; 
+import { toast } from 'react-toastify'; 
 
-function NewBoardModal({ onClose }) {
+function CreateBoardModal({ onClose }) {
   const [boardName, setBoardName] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
     if (boardName) {
       dispatch(addBoard(boardName));
-      onClose(); 
+      toast.success('New board created!');
+      onClose();
+    } else {
+      toast.error('Please enter a board name.');
     }
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2 className='board-creation'>Create New Board</h2>
+        <h2 className='board-color'>Create New Board</h2>
         <input
           type="text"
           className="modal-input"
@@ -39,4 +42,4 @@ function NewBoardModal({ onClose }) {
   );
 }
 
-export default NewBoardModal;
+export default CreateBoardModal;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Task from './Task';
+import './TaskColumn.css'; 
 
 function TaskColumn({ status }) {
   const activeBoardId = useSelector((state) => state.boards.activeBoardId);
@@ -11,9 +12,16 @@ function TaskColumn({ status }) {
 
   return (
     <div className="task-column">
-      <h2>{status}</h2>
-      {tasks.map((task, index) => (
-        <Task key={index} title={task.title} />
+      <h3>{status} ({tasks.length})</h3>
+      {tasks.map((task) => (
+        <Task
+          key={task.id}
+          id={task.id}
+          title={task.title}
+          description={task.description}
+          status={status}
+          boardId={activeBoardId}
+        />
       ))}
     </div>
   );

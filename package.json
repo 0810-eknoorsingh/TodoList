@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "pokemon",
-=======
   "name": "reacttodo",
->>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,17 +9,14 @@
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
+    "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
-<<<<<<< HEAD
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^10.0.5",
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
-=======
-    "react-scripts": "^5.0.1",
-    "redux": "^5.0.1",
->>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
     "web-vitals": "^2.1.4"
   },
   "scripts": {

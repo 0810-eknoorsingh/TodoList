@@ -1,5 +1,3 @@
-// App.js
-
 import React from 'react';
 import BoardList from './components/BoardList';
 import TaskColumn from './components/TaskColumn';

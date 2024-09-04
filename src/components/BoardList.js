@@ -1,69 +1,101 @@
-<<<<<<< HEAD
-
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setActiveBoard } from '../redux/boardSlice';
-import NewBoardModal from './NewBoardModal';
-=======
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addBoard, setActiveBoard } from '../redux/boardSlice';
->>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setActiveBoard, deleteBoard } from "../redux/boardSlice";
+import CreateBoardModal from "./CreateBoardModal";
+import Modal from "./Modal"; 
+import { toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
+import "../App.css";
 
 function BoardList() {
   const boards = useSelector((state) => state.boards.list);
   const activeBoardId = useSelector((state) => state.boards.activeBoardId);
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
+  const [showDeleteBoardModal, setShowDeleteBoardModal] = useState(false);
+  const [boardToDelete, setBoardToDelete] = useState(null);
+  const [menuVisible, setMenuVisible] = useState(false); 
 
-  const handleLogoClick = () => {
-    window.location.reload(); // Refresh the page
+  const handleDeleteBoard = (boardId) => {
+    setBoardToDelete(boardId);
+    setShowDeleteBoardModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    dispatch(deleteBoard(boardToDelete));
+    setShowDeleteBoardModal(false);
+    setBoardToDelete(null);
+    toast.error('Board has been deleted!', { 
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const handleCloseDeleteModal = () => {
+    setShowDeleteBoardModal(false);
+    setBoardToDelete(null);
+  };
+
+  const handleReload = () => {
+    window.location.reload();
+  };
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
   };
 
   return (
     <div className="board-list">
-<div>
-  <img src='/assets/1.png'
-  alt='Logo'
-  onClick={handleLogoClick} 
-  style={{ cursor: 'pointer' }}
-  />
-</div>
-
-=======
-
-  return (
-    <div className="board-list">
->>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
-      {boards.map((board) => (
-        <button
-          key={board.id}
-          className={`board-button ${board.id === activeBoardId ? 'active' : ''}`}
-          onClick={() => dispatch(setActiveBoard(board.id))}
-        >
-          {board.name}
+      <img src="/assets/1.png" alt="Logo" className="board-list-logo" onClick={handleReload} />
+      <div className="board-list-header">
+        <h2 className="board-all">
+          All Boards <span className="board-count">({boards.length})</span>
+        </h2>
+        <button className="hamburger" onClick={toggleMenu}>
+          ☰
         </button>
-      ))}
-      <button
-        className="new-board-button"
-<<<<<<< HEAD
-        onClick={() => setIsModalOpen(true)}
-      >
-        + Create New Board
-      </button>
-      {isModalOpen && <NewBoardModal onClose={() => setIsModalOpen(false)} />}
-=======
-        onClick={() => {
-          const boardName = prompt("Enter the name of the new board:");
-          if (boardName) {
-            dispatch(addBoard(boardName));
-          }
-        }}
-      >
-        + Create New Board
-      </button>
->>>>>>> d81746dd95f55e197289aa54239f09519dfbab14
+      </div>
+      <div className={`board-items ${menuVisible ? "visible" : ""}`}>
+        {boards.map((board) => (
+          <div key={board.id} className="board-item">
+            <button
+              className={`board-button ${
+                board.id === activeBoardId ? "active" : ""
+              }`}
+              onClick={() => dispatch(setActiveBoard(board.id))}
+            >
+              {board.name}
+            </button>
+            <button
+              className="delete-board-button"
+              onClick={() => handleDeleteBoard(board.id)}
+            >
+              ⛔
+            </button>
+          </div>
+        ))}
+        <button
+          className="new-board-button"
+          onClick={() => setShowCreateBoardModal(true)}
+        >
+          + Create New Board
+        </button>
+      </div>
+      {showCreateBoardModal && (
+        <CreateBoardModal onClose={() => setShowCreateBoardModal(false)} />
+      )}
+      {showDeleteBoardModal && (
+        <Modal
+          isOpen={showDeleteBoardModal}
+          onClose={handleCloseDeleteModal}
+          onConfirm={handleConfirmDelete}
+        />
+      )}
     </div>
   );
 }

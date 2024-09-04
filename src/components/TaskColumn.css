@@ -1,0 +1,44 @@
+body {
+  font-family: 'Bebas Neue', sans-serif;
+}
+.task-column {
+  width: 30%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.task {
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.task:hover{
+  transform: scale(1.03);
+}
+
+.task button {
+  margin-right: 5px;
+  align-self: center; 
+}
+
+.task input, .task textarea {
+  width: 95%; 
+  font-size: 20px;
+}
+
+.task-box {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

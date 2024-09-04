@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const tasksSlice = createSlice({
-  name: 'tasks',
+  name: "tasks",
   initialState: {
     tasksByBoardId: {},
   },
@@ -11,6 +11,7 @@ const tasksSlice = createSlice({
       if (!state.tasksByBoardId[boardId]) {
         state.tasksByBoardId[boardId] = [];
       }
+
       state.tasksByBoardId[boardId].push(task);
     },
   },
